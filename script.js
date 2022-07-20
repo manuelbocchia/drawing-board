@@ -1,6 +1,29 @@
-const boardArea = document.querySelector("#boardArea")
+const boardArea = document.querySelector("#boardArea");
+const generator = document.querySelector("#generator");
 
-for (let i = 0; i < (16*16); i++) {
+let newSizeArr = [16];
+
+generator.addEventListener("mousedown", (e)=> {
+    newSizeArr.pop();
+    let newSize = parseInt(prompt("New Resolution? 16 to 100"));
+    if (newSize < 16) {
+        newSize = 16;
+    } else if (newSize > 100) {
+        newSize = 100;
+    } 
+    newSizeArr.push(newSize);
+    createSquares();
+}
+)
+function createSquares() {
+
+const squares = document.querySelectorAll(".square");
+
+squares.forEach(element => {
+    boardArea.removeChild(element);
+});
+
+for (let i = 0; i < (newSizeArr[0]*newSizeArr[0]); i++) {
 let square = document.createElement("div");
     square.classList = "square";
     square.addEventListener("mouseover", (e)=>{
@@ -9,3 +32,6 @@ let square = document.createElement("div");
     })
     boardArea.appendChild(square);
 }
+ }
+
+ createSquares();
