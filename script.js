@@ -23,7 +23,9 @@ squares.forEach(element => {
     boardArea.removeChild(element);
 });
 
-for (let i = 0; i < (newSizeArr[0]*newSizeArr[0]); i++) {
+let totalSize = (newSizeArr[0]*newSizeArr[0]);
+
+for (let i = 0; i < (totalSize); i++) {
 let square = document.createElement("div");
     square.classList = "square";
     square.addEventListener("mouseover", (e)=>{
@@ -31,7 +33,7 @@ let square = document.createElement("div");
         square.style.backgroundColor = randomColor;
    
     })
-    const squareSizeIndex = 360000/(newSizeArr[0]);
+    const squareSizeIndex = parseInt(600/(Math.sqrt(totalSize)));
     square.style.width = `${squareSizeIndex}`+"px";
     square.style.height = `${squareSizeIndex}`+"px";
     boardArea.appendChild(square);
