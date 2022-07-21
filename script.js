@@ -29,8 +29,13 @@ let square = document.createElement("div");
     square.addEventListener("mouseover", (e)=>{
         var randomColor = `${'#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')}`;
         square.style.backgroundColor = randomColor;
+   
     })
+    const squareSizeIndex = 360000/(newSizeArr[0]);
+    square.style.width = `${squareSizeIndex}`+"px";
+    square.style.height = `${squareSizeIndex}`+"px";
     boardArea.appendChild(square);
+ 
 }
  }
 
