@@ -3,10 +3,14 @@
     <title>Manu's Fantastic Drawing Board</title>
 </head>
 <style>
+    :root {
+        --bright: 100%
+    }
     .square {
         width: 10px;
         height: 10px;
         background-color: white;
+        filter: brightness(var(--bright));
     }
     #page {
         display: flex;
@@ -25,11 +29,14 @@
         align-items: center;
         align-content: center;
         margin: auto;
+        border: 1px solid black;
+        padding: 0px;
     }
 </style>
 <body>
     <div id="banner">
         <button id="generator">Set size</button>
+        <button id="switch" data-mode="color">Color Mode</button>
     </div>
     <div id="page">
         <h1>Manu's Fantastic Drawing Board</h1>
